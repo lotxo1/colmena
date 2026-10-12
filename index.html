@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://media.pollinations.ai https://avatars.githubusercontent.com https://raw.githubusercontent.com; media-src 'self' blob: data: https://media.pollinations.ai; connect-src 'self' https://gen.pollinations.ai https://enter.pollinations.ai https://media.pollinations.ai; worker-src 'self' blob:; manifest-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Colmena — every AI model in one place</title>
+<meta name="description" content="Chat with GPT-6, DeepSeek, Grok, Kimi and 30+ models. Create and edit images, read PDFs, talk by voice. No subscription: pay per message with your Pollinations account.">
+<meta name="theme-color" content="#f5a524">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Colmena — every AI model in one place">
+<meta property="og:description" content="GPT-6, DeepSeek, Grok, Kimi and more. Images, PDFs, voice. Pay only for what you use.">
+<meta property="og:image" content="https://lotxo1.github.io/colmena/og-image.png">
+<meta property="og:url" content="https://lotxo1.github.io/colmena/">
+<link rel="canonical" href="https://lotxo1.github.io/colmena/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha384-wH75j6z1lH97ZOpMOInqhgKzFkAInZPPSPlZpYKYTOqsaizPvhQZmAtLcPKXpLyH" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js" integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="i18n.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+
+<!-- ================= Landing (signed out) ================= -->
+<div id="landing" class="landing hidden">
+  <header class="landing-top">
+    <div class="brand"><img src="icon.svg" alt=""><span>Colmena</span></div>
+    <div class="landing-top-actions">
+      <select class="lang-select" aria-label="Language"></select>
+      <button class="primary small" data-action="sign-in" data-i18n="signIn">Sign in</button>
+    </div>
+  </header>
+
+  <div id="inviteBanner" class="invite hidden"></div>
+
+  <main class="hero">
+    <p class="eyebrow" data-i18n="heroEyebrow"></p>
+    <h1 data-i18n="heroTitle"></h1>
+    <p class="lead" data-i18n="heroLead"></p>
+    <div class="hero-actions">
+      <button class="primary big" data-action="sign-in" data-i18n="signInPollinations"></button>
+    </div>
+    <label class="check center"><input type="checkbox" class="remember-check" checked> <span data-i18n="keepSignedIn"></span></label>
+    <p class="fine"><span data-i18n="heroFine"></span> <a href="#faq" data-i18n="q1"></a></p>
+    <img class="preview" src="preview.jpg" alt="" data-i18n-alt="previewAlt" width="1600" height="900">
+  </main>
+
+  <section class="features">
+    <article><span class="f-icon">💬</span><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></article>
+    <article><span class="f-icon">🎨</span><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></article>
+    <article><span class="f-icon">📄</span><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></article>
+    <article><span class="f-icon">🎙️</span><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></article>
+    <article><span class="f-icon">🧑‍🏫</span><h3 data-i18n="f5t"></h3><p data-i18n="f5d"></p></article>
+    <article><span class="f-icon">🪙</span><h3 data-i18n="f6t"></h3><p data-i18n="f6d"></p></article>
+    <article><span class="f-icon">🔒</span><h3 data-i18n="f7t"></h3><p data-i18n="f7d"></p></article>
+    <article><span class="f-icon">📱</span><h3 data-i18n="f8t"></h3><p data-i18n="f8d"></p></article>
+  </section>
+
+  <section class="how">
+    <h2 data-i18n="howTitle"></h2>
+    <ol>
+      <li><b data-i18n="how1t"></b><span data-i18n="how1d"></span></li>
+      <li><b data-i18n="how2t"></b><span data-i18n="how2d"></span></li>
+      <li><b data-i18n="how3t"></b><span data-i18n="how3d"></span></li>
+    </ol>
+    <button class="primary big" data-action="sign-in" data-i18n="signInPollinations"></button>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2 data-i18n="faqTitle"></h2>
+    <details><summary data-i18n="q1"></summary><p data-i18n="a1"></p></details>
+    <details><summary data-i18n="q2"></summary><p data-i18n="a2"></p></details>
+    <details><summary data-i18n="q3"></summary><p data-i18n="a3"></p></details>
+    <details><summary data-i18n="q4"></summary><p data-i18n="a4"></p></details>
+    <details><summary data-i18n="q5"></summary><p data-i18n="a5"></p></details>
+  </section>
+
+  <footer class="landing-foot">
+    <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener"><img class="badge" src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai"></a>
+    <p><span data-i18n="footNote"></span> · <a href="https://github.com/lotxo1/colmena" target="_blank" rel="noopener" data-i18n="sourceCode"></a></p>
+  </footer>
+</div>
+
+<!-- ================= App (signed in) ================= -->
+<div id="app" class="app hidden">
+  <aside id="sidebar" class="sidebar">
+    <div class="side-head">
+      <div class="brand"><img src="icon.svg" alt=""><span>Colmena</span></div>
+      <button class="icon-btn only-mobile" data-action="close-sidebar" aria-label="Close">✕</button>
+    </div>
+    <button class="primary new-chat" data-action="new-chat"><span>＋</span> <span data-i18n="newChat"></span></button>
+    <input id="chatSearch" class="side-search" type="search" data-i18n-placeholder="searchChats">
+    <nav id="chatList" class="chat-list"></nav>
+    <div class="side-foot">
+      <div class="account">
+        <img id="avatar" class="avatar" alt="">
+        <div class="account-text">
+          <div id="userName" class="user-name"></div>
+          <div class="balance"><span id="balance">—</span></div>
+          <div id="msgsLeft" class="msgs-left"></div>
+        </div>
+      </div>
+      <div class="side-actions">
+        <button class="ghost small hidden" id="installBtn" data-action="install-app" data-i18n="installApp"></button>
+        <button class="ghost small" data-action="open-settings" data-i18n="settings"></button>
+        <button class="ghost small" data-action="toggle-theme" data-i18n-title="theme" aria-label="Theme">◐</button>
+        <button class="ghost small" data-action="sign-out" data-i18n="signOut"></button>
+      </div>
+      <a class="side-badge" href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai"></a>
+    </div>
+  </aside>
+  <div id="scrim" class="scrim" data-action="close-sidebar"></div>
+
+  <section class="main">
+    <header class="topbar">
+      <button class="icon-btn only-mobile" data-action="open-sidebar" aria-label="Menu">☰</button>
+      <button id="modelBtn" class="model-btn" data-action="open-models" aria-haspopup="dialog">
+        <span id="modelName">…</span><span id="modelPrice" class="price-chip"></span><span class="caret">▾</span>
+      </button>
+      <div class="topbar-right">
+        <span id="assistantChip" class="assistant-chip hidden"></span>
+        <button class="icon-btn" data-action="export-chat" aria-label="Export" data-i18n-title="exportChat">⇩</button>
+      </div>
+    </header>
+
+    <div id="lowBanner" class="low-banner hidden"></div>
+
+    <div id="scroll" class="scroll">
+      <div id="welcome" class="welcome">
+        <h2 data-i18n="welcomeTitle"></h2>
+        <p class="muted" data-i18n="welcomeSub"></p>
+        <div id="assistants" class="assistant-grid"></div>
+      </div>
+      <div id="intro" class="intro hidden"></div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+    </div>
+
+    <div class="composer-wrap">
+      <div id="attachPreview" class="attach-preview hidden"></div>
+      <div class="mode-row">
+        <div class="seg" role="tablist">
+          <button id="modeChat" class="seg-btn active" data-action="mode-chat" data-i18n="modeChat" role="tab"></button>
+          <button id="modeImage" class="seg-btn" data-action="mode-image" data-i18n="modeImage" role="tab"></button>
+        </div>
+        <div id="imageOpts" class="image-opts hidden">
+          <select id="imageModel" aria-label="Image model"></select>
+          <select id="imageSize" aria-label="Size">
+            <option value="1024x1024" data-i18n="sizeSquare"></option>
+            <option value="1344x768" data-i18n="sizeWide"></option>
+            <option value="768x1344" data-i18n="sizeTall"></option>
+          </select>
+        </div>
+      </div>
+      <form id="composer" class="composer">
+        <button type="button" id="attachBtn" class="icon-btn" data-action="attach" data-i18n-title="attach" aria-label="Attach">📎</button>
+        <input id="fileInput" type="file" multiple hidden>
+        <textarea id="input" rows="1" data-i18n-placeholder="placeholder"></textarea>
+        <button type="button" id="voiceBtn" class="icon-btn" data-action="voice-mode" data-i18n-title="voiceMode" aria-label="Voice mode" aria-pressed="false">🎧</button>
+        <button type="button" id="micBtn" class="icon-btn" data-action="mic" data-i18n-title="dictate" aria-label="Dictate">🎙️</button>
+        <button type="submit" id="sendBtn" class="send-btn" aria-label="Send">➤</button>
+        <button type="button" id="stopBtn" class="send-btn stop hidden" data-action="stop" aria-label="Stop">■</button>
+      </form>
+      <p id="costHint" class="cost-hint"></p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= Model picker ================= -->
+<div id="modelsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modelsTitle">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="modelsTitle" data-i18n="chooseModel"></h3>
+      <button class="icon-btn" data-action="close-modal" aria-label="Close">✕</button>
+    </div>
+    <input id="modelSearch" class="search" type="search" data-i18n-placeholder="searchModels">
+    <div class="filters">
+      <label><input type="checkbox" id="filterVision"> <span data-i18n="filterVision"></span></label>
+      <label><input type="checkbox" id="filterCommunity"> <span data-i18n="filterCommunity"></span></label>
+    </div>
+    <p class="muted small-text" data-i18n="priceExplain"></p>
+    <div id="modelList" class="model-list"></div>
+  </div>
+</div>
+
+<!-- ================= Settings ================= -->
+<div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal-card narrow">
+    <div class="modal-head">
+      <h3 id="settingsTitle" data-i18n="settings"></h3>
+      <button class="icon-btn" data-action="close-modal" aria-label="Close">✕</button>
+    </div>
+    <label class="field"><span data-i18n="language"></span><select class="lang-select" aria-label="Language"></select></label>
+    <label class="field"><span data-i18n="voice"></span>
+      <select id="voiceSelect">
+        <option value="nova">Nova</option><option value="shimmer">Shimmer</option><option value="alloy">Alloy</option>
+        <option value="echo">Echo</option><option value="fable">Fable</option><option value="onyx">Onyx</option>
+      </select>
+    </label>
+    <label class="field"><span data-i18n="memory"></span>
+      <select id="memorySelect">
+        <option value="10" data-i18n="memLow"></option>
+        <option value="24" data-i18n="memMid"></option>
+        <option value="60" data-i18n="memHigh"></option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="autoRead"> <span data-i18n="autoRead"></span></label>
+    <label class="check"><input type="checkbox" class="remember-check" id="rememberMe"> <span data-i18n="rememberMe"></span></label>
+    <p class="muted small-text" data-i18n="rememberHelp"></p>
+    <div class="settings-actions">
+      <button class="ghost" data-action="clear-chats" data-i18n="clearChats"></button>
+      <a class="ghost" href="https://enter.pollinations.ai" target="_blank" rel="noopener" data-i18n="manageAccount"></a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Assistant editor ================= -->
+<div id="editorModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+  <div class="modal-card narrow">
+    <div class="modal-head">
+      <h3 id="editorTitle"></h3>
+      <button class="icon-btn" data-action="close-modal" aria-label="Close">✕</button>
+    </div>
+    <form id="editorForm" class="editor">
+      <div class="row2">
+        <label class="field emoji-field"><span data-i18n="fEmoji"></span><input id="edEmoji" maxlength="4" value="🤖"></label>
+        <label class="field grow"><span data-i18n="fName"></span><input id="edName" maxlength="60" required></label>
+      </div>
+      <label class="field"><span data-i18n="fDesc"></span><input id="edDesc" maxlength="80"></label>
+      <label class="field"><span data-i18n="fInstructions"></span><textarea id="edSystem" rows="6" maxlength="4000" required></textarea>
+        <small class="muted" data-i18n="fInstructionsHelp"></small></label>
+      <label class="field"><span data-i18n="fStarters"></span><textarea id="edStarters" rows="3" maxlength="800"></textarea></label>
+      <div class="editor-actions">
+        <button type="button" class="ghost danger hidden" id="edDelete" data-action="delete-assistant" data-i18n="delete"></button>
+        <button type="button" class="ghost hidden" id="edShare" data-action="share-assistant" data-i18n="share"></button>
+        <span class="spacer"></span>
+        <button type="button" class="ghost" data-action="close-modal" data-i18n="cancel"></button>
+        <button type="submit" class="primary" data-i18n="save"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= Import shared assistant ================= -->
+<div id="importModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="importTitle">
+  <div class="modal-card narrow">
+    <div class="modal-head">
+      <h3 id="importTitle" data-i18n="importTitle"></h3>
+      <button class="icon-btn" data-action="close-modal" aria-label="Close">✕</button>
+    </div>
+    <div id="importBody" class="import-body"></div>
+    <div class="editor-actions">
+      <span class="spacer"></span>
+      <button type="button" class="ghost" data-action="close-modal" data-i18n="cancel"></button>
+      <button type="button" class="primary" data-action="import-assistant" data-i18n="importAdd"></button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden" role="status"></div>
+<noscript><p class="noscript">Colmena needs JavaScript.</p></noscript>
+</body>
+</html>
