@@ -1,7 +1,7 @@
 /* Colmena service worker: makes the app installable and opens it offline.
    Network first for the app's own files (so updates show up immediately), cache as fallback.
    API calls and other origins are never touched. */
-const CACHE = "colmena-v1";
+const CACHE = "colmena-v2";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "i18n.js", "icon.svg", "manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

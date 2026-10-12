@@ -1410,6 +1410,9 @@ function installApp() {
 // ================================================================== boot
 let modelsReady = Promise.resolve();
 (async function boot() {
+  // The Markdown, sanitizer and highlighting libraries are deferred scripts listed after this one;
+  // DOMContentLoaded fires once every deferred script has run.
+  await new Promise((resolve) => document.addEventListener("DOMContentLoaded", resolve, { once: true }));
   const theme = store.get("colmena.theme");
   if (theme === "dark" || theme === "light") document.documentElement.dataset.theme = theme;
   $("voiceSelect").value = state.voice;
